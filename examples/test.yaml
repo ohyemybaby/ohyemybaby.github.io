@@ -1,0 +1,31 @@
+clusterName: "cluster-test"
+
+image:
+  repository: "apache/rocketmq"
+  tag: "4.9.7"
+
+broker:
+  size:
+    master: 1
+    replica: 0
+
+  persistence:
+    enabled: true
+    size: 8Gi
+
+nameserver:
+  replicaCount: 1
+
+dashboard:
+  enabled: true
+  replicaCount: 1
+
+  ingress:
+    enabled: false
+    className: "nginx"
+    hosts:
+      - host: rocketmq-dashboard.example.com
+    tls: []
+    #  - secretName: example-tls
+    #    hosts:
+    #      - rocketmq-dashboard.example.com
